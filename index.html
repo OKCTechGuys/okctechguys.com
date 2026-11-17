@@ -62,6 +62,10 @@
   }
   </script>
 
+  <link rel="icon" type="image/x-icon" href="favicon.ico" />
+  <link rel="icon" type="image/png" sizes="32x32" href="favicon-32x32.png" />
+  <link rel="icon" type="image/png" sizes="16x16" href="favicon-16x16.png" />
+  <link rel="apple-touch-icon" sizes="180x180" href="apple-touch-icon.png" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Sora:wght@600;700;800&display=swap" rel="stylesheet" />
@@ -612,176 +616,86 @@
     <div class="marquee-track">
 
       <!-- Original set -->
-      <div class="service-card" onclick="goTo('booking.html')">
-        <div class="service-icon"><svg width="24" height="24" fill="none" stroke="white" stroke-width="2" viewBox="0 0 24 24"><rect x="2" y="3" width="20" height="14" rx="2"/><path d="M8 21h8M12 17v4"/></svg></div>
-        <h3>PC &amp; Mac Repair</h3>
-        <p>Slow computer, won't boot, cracked screen — we diagnose and fix it fast, in your home or office.</p>
-        <button class="service-link" onclick="goTo('booking.html')">Book this service →</button>
-      </div>
-      <div class="service-card" onclick="goTo('booking.html')">
-        <div class="service-icon"><svg width="24" height="24" fill="none" stroke="white" stroke-width="2" viewBox="0 0 24 24"><path d="M1.05 12A11 11 0 0123 12M5.08 12a7 7 0 0113.85 0M9.13 12a3 3 0 015.75 0"/><circle cx="12" cy="12" r="1"/></svg></div>
-        <h3>Wi-Fi &amp; Network Setup</h3>
-        <p>Dead zones, slow speeds, new router setup — we get every device connected and running reliably.</p>
-        <button class="service-link" onclick="goTo('booking.html')">Book this service →</button>
-      </div>
-      <div class="service-card" onclick="goTo('booking.html')">
-        <div class="service-icon"><svg width="24" height="24" fill="none" stroke="white" stroke-width="2" viewBox="0 0 24 24"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg></div>
-        <h3>Virus &amp; Malware Removal</h3>
-        <p>Pop-ups, ransomware, suspicious behavior — we clean your device and harden it against future attacks.</p>
-        <button class="service-link" onclick="goTo('booking.html')">Book this service →</button>
-      </div>
-      <div class="service-card" onclick="goTo('booking.html')">
-        <div class="service-icon"><svg width="24" height="24" fill="none" stroke="white" stroke-width="2" viewBox="0 0 24 24"><path d="M4 12v8a2 2 0 002 2h12a2 2 0 002-2v-8"/><polyline points="16 6 12 2 8 6"/><line x1="12" y1="2" x2="12" y2="15"/></svg></div>
-        <h3>Data Backup &amp; Transfer</h3>
-        <p>Moving to a new computer or just want peace of mind? We safely migrate or back up everything that matters.</p>
-        <button class="service-link" onclick="goTo('booking.html')">Book this service →</button>
-      </div>
-      <div class="service-card" onclick="goTo('booking.html')">
-        <div class="service-icon"><svg width="24" height="24" fill="none" stroke="white" stroke-width="2" viewBox="0 0 24 24"><polyline points="6 9 6 2 18 2 18 9"/><path d="M6 18H4a2 2 0 01-2-2v-5a2 2 0 012-2h16a2 2 0 012 2v5a2 2 0 01-2 2h-2"/><rect x="6" y="14" width="12" height="8"/></svg></div>
-        <h3>Printer Setup &amp; Troubleshooting</h3>
-        <p>Won't connect, prints blank pages, driver errors — we handle it so you can get back to work.</p>
-        <button class="service-link" onclick="goTo('booking.html')">Book this service →</button>
-      </div>
-      <div class="service-card" onclick="goTo('booking.html')">
-        <div class="service-icon"><svg width="24" height="24" fill="none" stroke="white" stroke-width="2" viewBox="0 0 24 24"><rect x="2" y="3" width="20" height="14" rx="2"/><line x1="8" y1="21" x2="16" y2="21"/><line x1="12" y1="17" x2="12" y2="21"/></svg></div>
-        <h3>TV Mounting &amp; Setup</h3>
-        <p>We mount your TV on drywall and get all your streaming apps connected and ready to go.</p>
-        <button class="service-link" onclick="goTo('booking.html')">Book this service →</button>
-      </div>
-
-      <!-- Duplicate set for seamless loop -->
-      <div class="service-card" aria-hidden="true" onclick="goTo('booking.html')">
-        <div class="service-icon"><svg width="24" height="24" fill="none" stroke="white" stroke-width="2" viewBox="0 0 24 24"><rect x="2" y="3" width="20" height="14" rx="2"/><path d="M8 21h8M12 17v4"/></svg></div>
-        <h3>PC &amp; Mac Repair</h3>
-        <p>Slow computer, won't boot, cracked screen — we diagnose and fix it fast, in your home or office.</p>
-        <button class="service-link" onclick="goTo('booking.html')">Book this service →</button>
-      </div>
-      <div class="service-card" aria-hidden="true" onclick="goTo('booking.html')">
-        <div class="service-icon"><svg width="24" height="24" fill="none" stroke="white" stroke-width="2" viewBox="0 0 24 24"><path d="M1.05 12A11 11 0 0123 12M5.08 12a7 7 0 0113.85 0M9.13 12a3 3 0 015.75 0"/><circle cx="12" cy="12" r="1"/></svg></div>
-        <h3>Wi-Fi &amp; Network Setup</h3>
-        <p>Dead zones, slow speeds, new router setup — we get every device connected and running reliably.</p>
-        <button class="service-link" onclick="goTo('booking.html')">Book this service →</button>
-      </div>
-      <div class="service-card" aria-hidden="true" onclick="goTo('booking.html')">
-        <div class="service-icon"><svg width="24" height="24" fill="none" stroke="white" stroke-width="2" viewBox="0 0 24 24"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg></div>
-        <h3>Virus &amp; Malware Removal</h3>
-        <p>Pop-ups, ransomware, suspicious behavior — we clean your device and harden it against future attacks.</p>
-        <button class="service-link" onclick="goTo('booking.html')">Book this service →</button>
-      </div>
-      <div class="service-card" aria-hidden="true" onclick="goTo('booking.html')">
-        <div class="service-icon"><svg width="24" height="24" fill="none" stroke="white" stroke-width="2" viewBox="0 0 24 24"><path d="M4 12v8a2 2 0 002 2h12a2 2 0 002-2v-8"/><polyline points="16 6 12 2 8 6"/><line x1="12" y1="2" x2="12" y2="15"/></svg></div>
-        <h3>Data Backup &amp; Transfer</h3>
-        <p>Moving to a new computer or just want peace of mind? We safely migrate or back up everything that matters.</p>
-        <button class="service-link" onclick="goTo('booking.html')">Book this service →</button>
-      </div>
-      <div class="service-card" aria-hidden="true" onclick="goTo('booking.html')">
-        <div class="service-icon"><svg width="24" height="24" fill="none" stroke="white" stroke-width="2" viewBox="0 0 24 24"><polyline points="6 9 6 2 18 2 18 9"/><path d="M6 18H4a2 2 0 01-2-2v-5a2 2 0 012-2h16a2 2 0 012 2v5a2 2 0 01-2 2h-2"/><rect x="6" y="14" width="12" height="8"/></svg></div>
-        <h3>Printer Setup &amp; Troubleshooting</h3>
-        <p>Won't connect, prints blank pages, driver errors — we handle it so you can get back to work.</p>
-        <button class="service-link" onclick="goTo('booking.html')">Book this service →</button>
-      </div>
-      <div class="service-card" aria-hidden="true" onclick="goTo('booking.html')">
-        <div class="service-icon"><svg width="24" height="24" fill="none" stroke="white" stroke-width="2" viewBox="0 0 24 24"><rect x="2" y="3" width="20" height="14" rx="2"/><line x1="8" y1="21" x2="16" y2="21"/><line x1="12" y1="17" x2="12" y2="21"/></svg></div>
-        <h3>TV Mounting &amp; Setup</h3>
-        <p>We mount your TV on drywall and get all your streaming apps connected and ready to go.</p>
-        <button class="service-link" onclick="goTo('booking.html')">Book this service →</button>
-      </div>
-
-    </div>
-  </div>
-</section>
-
-<!-- ── TESTIMONIALS ── -->
-<section id="testimonials">
-  <div class="section-header" style="padding: 0 5%;">
-    <div class="section-label">Customer Reviews</div>
-    <div class="section-heading">What People Are Saying</div>
-    <p class="section-sub">Real feedback from real customers across the OKC metro.</p>
-  </div>
-  <div class="marquee-outer">
-    <div class="marquee-track">
-
-      <!-- Original set -->
       <div class="testimonial-card">
         <div class="stars">★★★★★</div>
-        <blockquote>"Their technician showed up on time, fixed my laptop in under an hour, and explained everything clearly. Way better than any big-box store experience I've had."</blockquote>
+        <blockquote>"Okc Tech Guys came out to my new apartment to help me set up my Ethernet. Fast and amazing service. Highly recommend!!"</blockquote>
         <div class="testimonial-author">
-          <div class="author-avatar">JM</div>
-          <div><div class="author-name">James M.</div><div class="author-location">Edmond, OK</div></div>
+          <div class="author-avatar">H</div>
+          <div><div class="author-name">Hunter</div><div class="author-location">Google Review</div></div>
         </div>
       </div>
       <div class="testimonial-card">
         <div class="stars">★★★★★</div>
-        <blockquote>"I had a bad virus and thought I'd lost everything. They recovered all my files and cleaned the computer completely. Couldn't be happier — highly recommend!"</blockquote>
+        <blockquote>"Lane is amazing and your go to guy for all your tech needs! Needed my hard drive replaced for school in my lap top, had me back up and running in no time! 10/10 recommend!!"</blockquote>
         <div class="testimonial-author">
-          <div class="author-avatar">SR</div>
-          <div><div class="author-name">Sandra R.</div><div class="author-location">Yukon, OK</div></div>
+          <div class="author-avatar">M</div>
+          <div><div class="author-name">Maegan</div><div class="author-location">Google Review</div></div>
         </div>
       </div>
       <div class="testimonial-card">
         <div class="stars">★★★★★</div>
-        <blockquote>"Set up Wi-Fi throughout our whole office. Fast, professional, and the pricing was totally fair. We'll definitely be calling them again for any future tech needs."</blockquote>
+        <blockquote>"Outstanding service! OKC TechGuys did a fantastic job setting up my home office workstation, including installing and positioning my monitors, configuring the screen display, and connecting the docking station, wireless keyboard, and mouse."</blockquote>
         <div class="testimonial-author">
-          <div class="author-avatar">DK</div>
-          <div><div class="author-name">Derek K.</div><div class="author-location">Midwest City, OK</div></div>
+          <div class="author-avatar">T</div>
+          <div><div class="author-name">Tina</div><div class="author-location">Google Review</div></div>
         </div>
       </div>
       <div class="testimonial-card">
         <div class="stars">★★★★★</div>
-        <blockquote>"Super knowledgeable and patient — walked me through everything step by step. My new printer is finally working after months of frustration. Worth every penny."</blockquote>
+        <blockquote>"Their team showed up on time, installed 4 access points across my house along side setting up a network switch and labeling everything after they cleaned up quickly. Will 100% use them again in the future."</blockquote>
         <div class="testimonial-author">
-          <div class="author-avatar">LP</div>
-          <div><div class="author-name">Linda P.</div><div class="author-location">Oklahoma City, OK</div></div>
+          <div class="author-avatar">C</div>
+          <div><div class="author-name">Christopher</div><div class="author-location">Google Review</div></div>
         </div>
       </div>
       <div class="testimonial-card">
         <div class="stars">★★★★★</div>
-        <blockquote>"Came out same day, had my computer running like new within an hour. Honest, affordable, and no upsell nonsense. These guys are the real deal."</blockquote>
+        <blockquote>"Had OKC Tech Guys replace a failing hard drive and my computer is now much faster. Highly recommend."</blockquote>
         <div class="testimonial-author">
-          <div class="author-avatar">RC</div>
-          <div><div class="author-name">Robert C.</div><div class="author-location">Edmond, OK</div></div>
+          <div class="author-avatar">M</div>
+          <div><div class="author-name">Mark</div><div class="author-location">Google Review</div></div>
         </div>
       </div>
 
       <!-- Duplicate set for seamless loop -->
       <div class="testimonial-card" aria-hidden="true">
         <div class="stars">★★★★★</div>
-        <blockquote>"Their technician showed up on time, fixed my laptop in under an hour, and explained everything clearly. Way better than any big-box store experience I've had."</blockquote>
+        <blockquote>"Okc Tech Guys came out to my new apartment to help me set up my Ethernet. Fast and amazing service. Highly recommend!!"</blockquote>
         <div class="testimonial-author">
-          <div class="author-avatar">JM</div>
-          <div><div class="author-name">James M.</div><div class="author-location">Edmond, OK</div></div>
+          <div class="author-avatar">H</div>
+          <div><div class="author-name">Hunter</div><div class="author-location">Google Review</div></div>
         </div>
       </div>
       <div class="testimonial-card" aria-hidden="true">
         <div class="stars">★★★★★</div>
-        <blockquote>"I had a bad virus and thought I'd lost everything. They recovered all my files and cleaned the computer completely. Couldn't be happier — highly recommend!"</blockquote>
+        <blockquote>"Lane is amazing and your go to guy for all your tech needs! Needed my hard drive replaced for school in my lap top, had me back up and running in no time! 10/10 recommend!!"</blockquote>
         <div class="testimonial-author">
-          <div class="author-avatar">SR</div>
-          <div><div class="author-name">Sandra R.</div><div class="author-location">Yukon, OK</div></div>
+          <div class="author-avatar">M</div>
+          <div><div class="author-name">Maegan</div><div class="author-location">Google Review</div></div>
         </div>
       </div>
       <div class="testimonial-card" aria-hidden="true">
         <div class="stars">★★★★★</div>
-        <blockquote>"Set up Wi-Fi throughout our whole office. Fast, professional, and the pricing was totally fair. We'll definitely be calling them again for any future tech needs."</blockquote>
+        <blockquote>"Outstanding service! OKC TechGuys did a fantastic job setting up my home office workstation, including installing and positioning my monitors, configuring the screen display, and connecting the docking station, wireless keyboard, and mouse."</blockquote>
         <div class="testimonial-author">
-          <div class="author-avatar">DK</div>
-          <div><div class="author-name">Derek K.</div><div class="author-location">Midwest City, OK</div></div>
+          <div class="author-avatar">T</div>
+          <div><div class="author-name">Tina</div><div class="author-location">Google Review</div></div>
         </div>
       </div>
       <div class="testimonial-card" aria-hidden="true">
         <div class="stars">★★★★★</div>
-        <blockquote>"Super knowledgeable and patient — walked me through everything step by step. My new printer is finally working after months of frustration. Worth every penny."</blockquote>
+        <blockquote>"Their team showed up on time, installed 4 access points across my house along side setting up a network switch and labeling everything after they cleaned up quickly. Will 100% use them again in the future."</blockquote>
         <div class="testimonial-author">
-          <div class="author-avatar">LP</div>
-          <div><div class="author-name">Linda P.</div><div class="author-location">Oklahoma City, OK</div></div>
+          <div class="author-avatar">C</div>
+          <div><div class="author-name">Christopher</div><div class="author-location">Google Review</div></div>
         </div>
       </div>
       <div class="testimonial-card" aria-hidden="true">
         <div class="stars">★★★★★</div>
-        <blockquote>"Came out same day, had my computer running like new within an hour. Honest, affordable, and no upsell nonsense. These guys are the real deal."</blockquote>
+        <blockquote>"Had OKC Tech Guys replace a failing hard drive and my computer is now much faster. Highly recommend."</blockquote>
         <div class="testimonial-author">
-          <div class="author-avatar">RC</div>
-          <div><div class="author-name">Robert C.</div><div class="author-location">Edmond, OK</div></div>
+          <div class="author-avatar">M</div>
+          <div><div class="author-name">Mark</div><div class="author-location">Google Review</div></div>
         </div>
       </div>
 
