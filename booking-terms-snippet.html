@@ -1,0 +1,166 @@
+<!--
+  OKC Tech Guys: Terms checkbox + Back Up First choice for booking.html
+  ======================================================================
+  There are 4 pieces. Each one says where to paste it.
+
+  What it does
+  - Adds a required "Back Up First" choice (3 options) and a required
+    "I agree to the Service Terms" checkbox to the booking form.
+  - The booking can't be submitted until both are filled in. The orange
+    message shows what's missing.
+  - Both answers are sent to Formspree, so every booking email shows
+    "agreed_to_terms: Yes" and the backup option they chose.
+-->
+
+
+<!-- ============================================================
+     PIECE 1: CSS. Paste inside the <style> block in booking.html
+     (or at the end of your stylesheet).
+     ============================================================ -->
+<style>
+  .okc-terms {
+    margin: 20px 0 16px;
+    padding: 16px 18px;
+    border: 1px solid #E2E8F0;
+    border-left: 4px solid #EA6C1A;
+    border-radius: 10px;
+    background: #FFF4EC;
+    color: #1E293B;
+    font-size: 0.95rem;
+    line-height: 1.5;
+    text-align: left;
+  }
+  .okc-terms legend,
+  .okc-terms .okc-terms-title {
+    font-weight: 700;
+    margin: 0 0 6px;
+    padding: 0;
+    font-size: 1rem;
+  }
+  .okc-terms fieldset { border: 0; margin: 0 0 12px; padding: 0; }
+  .okc-terms p { margin: 0 0 10px; }
+  .okc-terms label {
+    display: flex;
+    gap: 10px;
+    align-items: flex-start;
+    margin: 6px 0;
+    cursor: pointer;
+  }
+  .okc-terms input[type="radio"],
+  .okc-terms input[type="checkbox"] {
+    margin-top: 3px;
+    width: 18px;
+    height: 18px;
+    flex-shrink: 0;
+    accent-color: #EA6C1A;
+  }
+  .okc-terms a { color: #EA6C1A; font-weight: 600; }
+  .okc-terms .okc-terms-agree {
+    padding-top: 10px;
+    border-top: 1px solid rgba(234,108,26,0.25);
+  }
+  .okc-terms-error {
+    display: none;
+    margin-top: 10px;
+    padding: 8px 12px;
+    border-radius: 6px;
+    background: #EA6C1A;
+    color: #fff;
+    font-weight: 600;
+    font-size: 0.9rem;
+  }
+  .okc-terms.is-invalid { border-color: #EA6C1A; box-shadow: 0 0 0 3px rgba(234,108,26,0.25); }
+  .okc-terms.is-invalid .okc-terms-error { display: block; }
+</style>
+
+
+<!-- ============================================================
+     PIECE 2: HTML. Paste INSIDE your booking <form>, just ABOVE
+     the final submit / "Confirm booking" button (the last step
+     of the scheduling modal).
+     ============================================================ -->
+<div class="okc-terms" id="okc-terms">
+  <fieldset>
+    <legend>Back Up First</legend>
+    <p>Repairs and transfers can put files at risk. Please choose one:</p>
+    <label>
+      <input type="radio" name="backup_choice" value="Customer has backed up data" required>
+      <span>My data is backed up.</span>
+    </label>
+    <label>
+      <input type="radio" name="backup_choice" value="Customer wants paid backup service">
+      <span>Please back up my data for an additional fee.</span>
+    </label>
+    <label>
+      <input type="radio" name="backup_choice" value="Customer declined backup">
+      <span>I decline a backup and accept the risk of data loss.</span>
+    </label>
+  </fieldset>
+
+  <label class="okc-terms-agree">
+    <input type="checkbox" name="agreed_to_terms" value="Yes" required>
+    <span>I've read and agree to the <a href="terms.html" target="_blank" rel="noopener">Service Terms</a>, including the Back Up First policy. I understand I'll be asked to sign a copy at the visit.</span>
+  </label>
+
+  <div class="okc-terms-error" id="okc-terms-error" role="alert">
+    Please choose a backup option and agree to the Service Terms.
+  </div>
+</div>
+
+
+<!-- ============================================================
+     PIECE 3: JavaScript. Paste just before </body> in booking.html,
+     AFTER your existing booking script. It doesn't touch your other
+     code.
+     ============================================================ -->
+<script>
+document.addEventListener('DOMContentLoaded', function () {
+  var box = document.getElementById('okc-terms');
+  if (!box) return;
+
+  var errorEl = document.getElementById('okc-terms-error');
+
+  function termsOk() {
+    var backup = box.querySelector('input[name="backup_choice"]:checked');
+    var agreed = box.querySelector('input[name="agreed_to_terms"]').checked;
+    return !!backup && agreed;
+  }
+
+  function showError() {
+    box.classList.add('is-invalid');
+    box.scrollIntoView({ behavior: 'smooth', block: 'center' });
+  }
+
+  // Clear the warning as soon as both are filled in
+  box.addEventListener('change', function () {
+    if (termsOk()) box.classList.remove('is-invalid');
+  });
+
+  // Block any form submit that contains this box until it's complete.
+  // Capture phase = runs BEFORE your existing submit handlers.
+  document.addEventListener('submit', function (e) {
+    if (!e.target.contains(box)) return;
+    if (!termsOk()) {
+      e.preventDefault();
+      e.stopImmediatePropagation();
+      showError();
+    }
+  }, true);
+
+  // If your booking sends with fetch() from a button click instead of a
+  // normal form submit, call this at the top of that click handler:
+  //   if (!window.okcTermsCheck()) return;
+  window.okcTermsCheck = function () {
+    if (termsOk()) return true;
+    showError();
+    return false;
+  };
+});
+</script>
+
+
+<!-- ============================================================
+     PIECE 4: Footer link. Add to the footer of BOTH index.html and
+     booking.html, next to your other footer links.
+     ============================================================ -->
+<a href="terms.html">Service Terms</a>

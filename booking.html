@@ -242,7 +242,63 @@
     footer { background: var(--slate); color: rgba(255,255,255,0.7); padding: 2.5rem 5%; display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 1rem; }
     footer p, footer a { font-size: 0.85rem; }
     footer a:hover { color: var(--white); }
-  </style>
+   block in booking.html
+     (or at the end of your stylesheet).
+     ============================================================ -->
+<style>
+  .okc-terms {
+    margin: 20px 0 16px;
+    padding: 16px 18px;
+    border: 1px solid #E2E8F0;
+    border-left: 4px solid #EA6C1A;
+    border-radius: 10px;
+    background: #FFF4EC;
+    color: #1E293B;
+    font-size: 0.95rem;
+    line-height: 1.5;
+    text-align: left;
+  }
+  .okc-terms legend,
+  .okc-terms .okc-terms-title {
+    font-weight: 700;
+    margin: 0 0 6px;
+    padding: 0;
+    font-size: 1rem;
+  }
+  .okc-terms fieldset { border: 0; margin: 0 0 12px; padding: 0; }
+  .okc-terms p { margin: 0 0 10px; }
+  .okc-terms label {
+    display: flex;
+    gap: 10px;
+    align-items: flex-start;
+    margin: 6px 0;
+    cursor: pointer;
+  }
+  .okc-terms input[type="radio"],
+  .okc-terms input[type="checkbox"] {
+    margin-top: 3px;
+    width: 18px;
+    height: 18px;
+    flex-shrink: 0;
+    accent-color: #EA6C1A;
+  }
+  .okc-terms a { color: #EA6C1A; font-weight: 600; }
+  .okc-terms .okc-terms-agree { margin: 0; }
+  .okc-terms-error {
+    display: none;
+    margin-top: 10px;
+    padding: 8px 12px;
+    border-radius: 6px;
+    background: #EA6C1A;
+    color: #fff;
+    font-weight: 600;
+    font-size: 0.9rem;
+  }
+  .okc-terms.is-invalid { border-color: #EA6C1A; box-shadow: 0 0 0 3px rgba(234,108,26,0.25); }
+  .okc-terms.is-invalid .okc-terms-error { display: block; }
+  .okc-terms label { font-size: 0.9rem; font-weight: 500; }
+  .okc-terms .okc-terms-error { margin-bottom: 0; }
+</style>
 </head>
 <body>
 
@@ -286,7 +342,7 @@
         <div class="service-meta">
           <h3>PC Diagnostic / Repair</h3>
           <p>Slow performance, won&#x27;t start, strange errors — we diagnose the issue and fix it on the spot when possible.</p>
-          <div class="service-badges"><span class="badge badge-time">1 hr</span><span class="badge badge-price">$60</span></div>
+          <div class="service-badges"><span class="badge badge-time">1 hr</span><span class="badge badge-price from">From $60</span></div>
           <button class="details-btn" onclick="event.stopPropagation();openDetails('pc-diag')">
             <svg width="13" height="13" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/></svg>
             What's included
@@ -402,7 +458,7 @@
         <div class="service-meta">
           <h3>Wi-Fi &amp; Network Setup</h3>
           <p>New router, dead zones, or devices that won&#x27;t connect — we get your whole home or office reliably online.</p>
-          <div class="service-badges"><span class="badge badge-time">1.5 hr</span><span class="badge badge-price">$100</span></div>
+          <div class="service-badges"><span class="badge badge-time">1.5 hr</span><span class="badge badge-price from">From $100</span></div>
           <button class="details-btn" onclick="event.stopPropagation();openDetails('wifi')">
             <svg width="13" height="13" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/></svg>
             What's included
@@ -445,7 +501,7 @@
         <span>Estimated Total</span>
         <span id="total-text">—</span>
       </div>
-      <p class="summary-note">Final pricing confirmed at time of appointment.</p>
+      <p class="summary-note">Final pricing confirmed at time of appointment. "From" prices vary based on scope of work.</p>
       <button class="btn-book" id="book-btn" disabled>Continue to Schedule</button>
     </div>
   </div>
@@ -499,6 +555,16 @@
           <option>Yelp</option>
           <option>Other</option>
         </select>
+      </div>
+      <div class="okc-terms" id="okc-terms">
+        <label class="okc-terms-agree">
+          <input type="checkbox" name="agreed_to_terms" value="Yes" required>
+          <span>I've read and agree to the <a href="service-terms.html" target="_blank" rel="noopener">Service Terms</a>, including the Back Up First policy. I understand I'll be asked to sign a copy at the visit.</span>
+        </label>
+
+        <div class="okc-terms-error" id="okc-terms-error" role="alert">
+          Please agree to the Service Terms to continue.
+        </div>
       </div>
       <button class="btn-confirm" id="confirm-btn">Confirm Booking Request</button>
     </div>
@@ -556,7 +622,7 @@ document.addEventListener('DOMContentLoaded', function () {
 
   // ── DATA ────────────────────────────────────────────────
   var SERVICES = {
-    "pc-diag": { name: "PC Diagnostic / Repair", price: "$60", duration: "~1 hr" },
+    "pc-diag": { name: "PC Diagnostic / Repair", price: "From $60", duration: "~1 hr" },
     "pc-virus": { name: "PC Virus & Malware Removal", price: "$100", duration: "~1 hr" },
     "pc-printer": { name: "Printer Connect / Diagnostic", price: "$50", duration: "~1 hr" },
     "pc-build": { name: "Custom PC Build", price: "$150", duration: "~3 hr" },
@@ -565,7 +631,7 @@ document.addEventListener('DOMContentLoaded', function () {
     "pc-data": { name: "Data Transfer (Up to 250GB)", price: "$150", duration: "~2 hr" },
     "tv-mount": { name: "Basic TV Mounting & Setup", price: "$100", duration: "~1.5 hr" },
     "tv-setup": { name: "TV Setup", price: "$50", duration: "~45 min" },
-    "wifi": { name: "Wi-Fi & Network Setup", price: "$100", duration: "~1.5 hr" },
+    "wifi": { name: "Wi-Fi & Network Setup", price: "From $100", duration: "~1.5 hr" },
     "general": { name: "General Service Call", price: "$50", duration: "~1 hr" }
   };
 
@@ -613,14 +679,10 @@ document.addEventListener('DOMContentLoaded', function () {
     }).join('');
 
     var hasFlex = sids.some(function(sid) { return SERVICES[sid].price.indexOf('From') === 0; });
-    if (hasFlex) {
-      document.getElementById('total-text').textContent = 'See note below';
-    } else {
-      var sum = sids.reduce(function(a, sid) {
-        return a + (parseInt(SERVICES[sid].price.replace(/[^0-9]/g, '')) || 0);
-      }, 0);
-      document.getElementById('total-text').textContent = sum > 0 ? '$' + sum : '—';
-    }
+    var sum = sids.reduce(function(a, sid) {
+      return a + (parseInt(SERVICES[sid].price.replace(/[^0-9]/g, '')) || 0);
+    }, 0);
+    document.getElementById('total-text').textContent = sum > 0 ? (hasFlex ? 'From $' : '$') + sum : '—';
   }
 
   function addService(sid) {
@@ -684,10 +746,12 @@ document.addEventListener('DOMContentLoaded', function () {
     var address  = document.getElementById('m-address').value.trim();
     var notes    = document.getElementById('m-notes').value.trim();
     var referral = document.getElementById('m-referral').value;
+    var agreed   = document.querySelector('input[name="agreed_to_terms"]').checked;
     var sids     = Object.keys(selected);
     var serviceList = sids.map(function(sid) { return SERVICES[sid].name + ' — ' + SERVICES[sid].price; }).join(', ');
 
     if (!fname || !email || !phone) { alert('Please fill in your name, email, and phone number.'); return; }
+    if (!agreed) { var tb = document.getElementById('okc-terms'); tb.classList.add('is-invalid'); tb.scrollIntoView({ behavior: 'smooth', block: 'center' }); return; }
     if (date) {
       var chosenDate = new Date(date + 'T00:00:00');
       var today = new Date(); today.setHours(0, 0, 0, 0);
@@ -711,7 +775,8 @@ document.addEventListener('DOMContentLoaded', function () {
         time:      time || 'Flexible',
         address:   address || 'Not provided',
         notes:     notes || 'None',
-        referral:  referral || 'Not specified'
+        referral:  referral || 'Not specified',
+        agreed_to_terms: 'Yes'
       })
     })
     .then(function(res) {
@@ -763,7 +828,14 @@ document.addEventListener('DOMContentLoaded', function () {
 
   // ── EVENT LISTENERS ──────────────────────────────────────
 
-  // Book button + FAB
+  // Terms box: clear the warning once the box is checked
+  document.getElementById('okc-terms').addEventListener('change', function() {
+    if (document.querySelector('input[name="agreed_to_terms"]').checked) {
+      this.classList.remove('is-invalid');
+    }
+  });
+
+    // Book button + FAB
   document.getElementById('book-btn').onclick = openModal;
   document.getElementById('fab-btn').onclick   = openModal;
 
