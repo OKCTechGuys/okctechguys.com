@@ -93,6 +93,22 @@
       .footer-links { justify-content: center; margin-left: 0; }
       .nav-links { display: none; }
     }
+  
+    /* ── SHARED FOOTER (same on every page) ── */
+    footer {
+      padding: 2.5rem 5%; padding-right: calc(5% + 200px);
+      display: flex; align-items: center; justify-content: flex-start;
+      flex-wrap: wrap; gap: 1rem; text-align: left; line-height: 1.5;
+    }
+    footer p { font-size: .85rem; }
+    .footer-links { display: flex; flex-wrap: wrap; gap: .5rem 1.2rem; margin-left: auto; }
+    .footer-links a { font-size: .85rem; color: rgba(255,255,255,.7); text-decoration: none; transition: color .2s; }
+    .footer-links a:hover { color: #FFFFFF; }
+    footer .footer-logo img { height: 48px; width: auto; display: block; }
+    @media (max-width: 768px) {
+      footer { flex-direction: column; text-align: center; padding: 2rem 5% 5.5rem; }
+      .footer-links { justify-content: center; margin-left: 0; gap: .6rem 1.2rem; }
+    }
   </style>
 </head>
 <body>
@@ -174,9 +190,11 @@
   <p>© 2026 OKC Tech Guys · Oklahoma City, OK</p>
   <div class="footer-links">
     <a href="index.html">Home</a>
+    <a href="booking.html">Book Now</a>
+    <a href="index.html#contact">Contact Us</a>
     <a href="privacy.html">Privacy Policy</a>
     <a href="terms.html">Terms of Use</a>
-    <a href="service-terms.html">Service Terms</a>
+    <a href="service-terms.html">Service Agreement</a>
   </div>
 </footer>
 

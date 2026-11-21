@@ -103,7 +103,7 @@
     .sig-table th, .sig-table td { border: 1px solid var(--border); padding: .6rem .75rem; text-align: left; height: 42px; color: var(--text); }
     .sig-table th { background: var(--off-white); width: 22%; }
     .sig-table thead th { width: auto; }
-    .contact-box { margin-top: 2rem; padding: 1rem 1.2rem; background: var(--white); border: 1px solid var(--border); border-radius: 10px; }
+    .contact-box { margin-top: 2rem; }
     .contact-box p { margin: 0; }
 
     /* Printed copy = the one-page agreement signed at the visit */
@@ -131,6 +131,22 @@
       footer { flex-direction: column; text-align: center; padding-right: 5%; }
       .footer-links { justify-content: center; margin-left: 0; }
       .nav-links { display: none; }
+    }
+  
+    /* ── SHARED FOOTER (same on every page) ── */
+    footer {
+      padding: 2.5rem 5%; padding-right: calc(5% + 200px);
+      display: flex; align-items: center; justify-content: flex-start;
+      flex-wrap: wrap; gap: 1rem; text-align: left; line-height: 1.5;
+    }
+    footer p { font-size: .85rem; }
+    .footer-links { display: flex; flex-wrap: wrap; gap: .5rem 1.2rem; margin-left: auto; }
+    .footer-links a { font-size: .85rem; color: rgba(255,255,255,.7); text-decoration: none; transition: color .2s; }
+    .footer-links a:hover { color: #FFFFFF; }
+    footer .footer-logo img { height: 48px; width: auto; display: block; }
+    @media (max-width: 768px) {
+      footer { flex-direction: column; text-align: center; padding: 2rem 5% 5.5rem; }
+      .footer-links { justify-content: center; margin-left: 0; gap: .6rem 1.2rem; }
     }
   </style>
 </head>
@@ -231,9 +247,11 @@
   <p>© 2026 OKC Tech Guys · Oklahoma City, OK</p>
   <div class="footer-links">
     <a href="index.html">Home</a>
+    <a href="booking.html">Book Now</a>
+    <a href="index.html#contact">Contact Us</a>
     <a href="privacy.html">Privacy Policy</a>
     <a href="terms.html">Terms of Use</a>
-    <a href="service-terms.html">Service Terms</a>
+    <a href="service-terms.html">Service Agreement</a>
   </div>
 </footer>
 
